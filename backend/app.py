@@ -9,7 +9,7 @@ load_dotenv()
 # Import models and services
 from models.database import init_db
 from services.scheduler import setup_scheduler, scrape_all_sources
-from routes import news_bp, events_bp, raids_bp
+from routes import news_bp, events_bp, raids_bp, assistant_bp
 
 # Create Flask app
 app = Flask(__name__)
@@ -19,6 +19,7 @@ CORS(app)
 app.register_blueprint(news_bp)
 app.register_blueprint(events_bp)
 app.register_blueprint(raids_bp)
+app.register_blueprint(assistant_bp)
 
 
 @app.route('/')
@@ -32,6 +33,7 @@ def index():
             'events': '/api/events',
             'calendar': '/api/events/calendar',
             'raids': '/api/raids',
+            'assistant': '/api/assistant',
             'scrape': '/api/scrape'
         }
     })

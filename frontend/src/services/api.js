@@ -139,6 +139,48 @@ export const raidsAPI = {
   },
 };
 
+// Assistant API calls
+export const assistantAPI = {
+  ask: async (question, conversationHistory = null) => {
+    try {
+      const response = await api.post('/api/assistant/ask', {
+        question,
+        conversation_history: conversationHistory,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  getSuggestions: async () => {
+    try {
+      const response = await api.get('/api/assistant/suggestions');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  getEventRecommendations: async (preferences) => {
+    try {
+      const response = await api.post('/api/assistant/recommend-events', preferences);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  healthCheck: async () => {
+    try {
+      const response = await api.get('/api/assistant/health');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+};
+
 // Admin API calls
 export const adminAPI = {
   triggerScrape: async () => {

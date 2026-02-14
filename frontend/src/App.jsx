@@ -4,6 +4,8 @@ import NewsFeed from './components/NewsFeed';
 import EventsList from './components/EventsList';
 import EventCalendar from './components/EventCalendar';
 import RaidCountersPage from './components/RaidCountersPage';
+import AIAssistant from './components/AIAssistant';
+import EventRecommender from './components/EventRecommender';
 
 const Navigation = () => {
   const location = useLocation();
@@ -13,6 +15,8 @@ const Navigation = () => {
     { path: '/events', label: 'Events', icon: '🎉' },
     { path: '/calendar', label: 'Calendar', icon: '📅' },
     { path: '/raids', label: 'Raid Counters', icon: '⚔️' },
+    { path: '/assistant', label: 'AI Assistant', icon: '🤖' },
+    { path: '/recommender', label: 'Event Recommender', icon: '🎯' },
   ];
 
   return (
@@ -78,6 +82,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-3">Features</h3>
             <ul className="text-gray-400 text-sm space-y-1">
               <li>• AI-Powered Event Summaries</li>
+              <li>• Smart Event Recommendations</li>
               <li>• Real-time News Updates</li>
               <li>• Interactive Event Calendar</li>
               <li>• Raid Boss Counters</li>
@@ -108,6 +113,8 @@ function App() {
             <Route path="/events" element={<EventsList />} />
             <Route path="/calendar" element={<EventCalendar />} />
             <Route path="/raids" element={<RaidCountersPage />} />
+            <Route path="/assistant" element={<AIAssistant />} />
+            <Route path="/recommender" element={<EventRecommender />} />
           </Routes>
         </main>
 
